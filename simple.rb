@@ -129,8 +129,8 @@ opts = Getopt::Std.getopts("c:n:w:j:u:")
 serv = opts["c"] || "irc.freenode.net"
 port = 6667
 join = opts["j"] || 'apfelstrudel'
-nick = opts["n"] || 'amonkey'
-uname = opts["u"] || 'gsommers'
+nick = opts["n"] || 'a_monkey'
+uname = opts["u"] || 'monkeybot'
 pass = opts["w"] || '' 
 
 puts "connecting to '#{serv}' -> '#{join}' as '#{nick}', with pw #{pass}"

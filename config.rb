@@ -1,10 +1,14 @@
+@owner = "gs4"
+@owner_names = /[gG]ordon/
+
+
 @callbacks = {
   :chat => lambda { |nick, user, ip, msg|
-    if msg =~ /[gG]ordon/ || msg =~ /gsommers/
-      say_to_nick "gsommers", "#{nick}: #{msg}"
+    if msg =~ @owner_names || msg =~ /@owner/
+      say_to_nick @owner, "#{nick}: #{msg}"
     end
     if msg =~ /monkey/
-      say_to_nick "gsommers", "#{nick}: #{msg}"
+      say_to_nick @owner, "#{nick}: #{msg}"
     end
     if msg.downcase =~ /do a barrel roll/
       emote_to_chan "does a barrel roll"
@@ -12,8 +16,8 @@
   },
   :private => lambda { |nick, user, ip, msg|
     msg.strip!
-    me = (@server == 'irc.factset.com') ? 'gsommers' : 'gs4'
-    if nick == me
+    
+    if nick == @owner
       if msg =~ /^say\s(.+)/
         say_to_chan $1
       elsif msg =~ /^emote\s(.+)/
@@ -22,16 +26,16 @@
         eval(msg)
       end
     else
-      say_to_nick me, "forwarded message from #{nick} (#{user}@#{ip}) :#{msg}"
+      say_to_nick @owner, "forwarded message from #{nick} (#{user}@#{ip}) :#{msg}"
     end
   },
   :other => lambda { |msg|
-
+    #server messages
   },
   :minute => lambda {
     puts 'tic'
     if (rand * 90).to_i == 0
-      choice = choose_from ["meows", "woofs", "needs a banana", "barks", "moos", "scratches itself", "roars at gkaravaev"]
+      choice = choose_from ["meows", "woofs", "needs a banana", "barks", "moos", "scratches itself", "roars"]
       emote_to_chan choice
     end
   }
