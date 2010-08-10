@@ -1,0 +1,8 @@
+License: Artistic
+
+Gem Requirements:
+* ruby getopt (tested with version 1.4.0)
+* rinotify  (tested with version 0.9)
+
+Platforms this program has been used successfully on:
+* linux x86
