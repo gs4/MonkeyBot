@@ -6,3 +6,9 @@ Gem Requirements:
 
 Platforms this program has been used successfully on:
 * linux x86
+
+TODO:
+documentation
+warn on failed/missing @callbacks
+warn for missing callbacks in the hash
+
