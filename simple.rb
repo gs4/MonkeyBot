@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'system_timer'
 require 'socket'
 require 'getopt/std'
 require 'rinotify'
